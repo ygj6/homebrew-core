@@ -3,13 +3,15 @@ class FluidSynth < Formula
   homepage "http://www.fluidsynth.org"
   url "https://github.com/FluidSynth/fluidsynth/archive/v2.0.4.tar.gz"
   sha256 "2c065de87e9c9ba0311ebf2f4828a4fd76f1f5cc7d1d93dd80d7a048d7d2a76c"
+  revision 1
   head "https://github.com/FluidSynth/fluidsynth.git"
 
   bottle do
     cellar :any
-    sha256 "41d1a846cf43c9bd44c12916f90a54e1a54c647c5826f584e2abbf8f6f09682f" => :mojave
-    sha256 "1108f6f219cb1fbd80b4a2d917fbe2b36325cb93163de01fd157fe47a64ce0aa" => :high_sierra
-    sha256 "d76812fb21a4956ba0272f2d39a643c30b220c8e89bbce038a493cebca2cc0bc" => :sierra
+    rebuild 1
+    sha256 "096098def104dbd267e2bf16c6afa0298df4e40372d14310617e9bdadcdc6913" => :mojave
+    sha256 "404d3ba14185d4593d269270591c6978203365790ff014b643e732a518784ffa" => :high_sierra
+    sha256 "b9e8f11bdde68b9f0264154b95ef58d4ced5949ba1d71c1bef6f25403b23c33d" => :sierra
   end
 
   depends_on "cmake" => :build

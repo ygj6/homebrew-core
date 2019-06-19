@@ -3,13 +3,13 @@ class Libbitcoin < Formula
   homepage "https://libbitcoin.org/"
   url "https://github.com/libbitcoin/libbitcoin-system/archive/v3.5.0.tar.gz"
   sha256 "44ecd8b0de0dff2296f03e9c7f42a0afb9ac4f916aeaf6de2bffd0ccc05790b5"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "997e9c55ff1561b05fcf5aa2a4873bfb126120d3c52501ff892e70333fbf1cad" => :mojave
-    sha256 "c94594e8450758a2f73bab46353886149dac7170057c8b73335d50d24513ec33" => :high_sierra
-    sha256 "8cdc29ac8fb868638d987c8629391fb6cbb0866c9bec180e73f43d4e25ccc9f1" => :sierra
+    sha256 "fd075c9637368056eefe9693e82f3b482ee497a183dcec3d6e69d664e68f4bb5" => :mojave
+    sha256 "b96883e014fd03b6660a76f33417851189dae9a8670d2194c4e61497c0f4c37a" => :high_sierra
+    sha256 "e230191cc01faf8f8106c5f234361a4b8ab3f57786a565cc1128ef631dd8905a" => :sierra
   end
 
   depends_on "autoconf" => :build

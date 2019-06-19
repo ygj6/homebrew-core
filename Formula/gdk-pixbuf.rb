@@ -3,12 +3,12 @@ class GdkPixbuf < Formula
   homepage "https://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.1.tar.xz"
   sha256 "f19ff836ba991031610dcc53774e8ca436160f7d981867c8c3a37acfe493ab3a"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "d1bb6279efd838ab42c7091e9454ad4eef8414bd88a2f2666d8f5e926ed34dcf" => :mojave
-    sha256 "6f87d84cd357f2cd7a85109da0b9edc070def6a15c7d77fe2093a1edae4a8379" => :high_sierra
-    sha256 "6cd83ebb309b5c1367eaba1cd20aa17ecea18aefa1065c8d9771d6a3c4844810" => :sierra
+    sha256 "183c810ede98f4732b2fcbe781670c4f4c5d9e75f4530975864abb524c1911dd" => :mojave
+    sha256 "f7d10a967373df44ce4e0ca18965428f1404513195f1403e7964511b2e091d57" => :high_sierra
+    sha256 "6c98ec526d0c3fbee49f46339d9997e7aeba93a55a655d1b521f93c26ab16c98" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

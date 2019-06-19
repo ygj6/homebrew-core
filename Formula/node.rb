@@ -1,15 +1,16 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.3.1/node-v12.3.1.tar.gz"
-  sha256 "d9132342815f04fdb8eb6cac5607fcee929a79e0339449774f411efed81693ac"
+  url "https://nodejs.org/dist/v12.4.0/node-v12.4.0.tar.gz"
+  sha256 "cf39befb8ea486363cac6f297d8f451fd0d5dd8ad21dca51e9c2ea86b242baa0"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    sha256 "4ded0c82859da5c88b37e4295e95dd3a30e88d3a399e02ffa3592e3d3a41d5c6" => :mojave
-    sha256 "b9e7eea810a7cabaea0345ce54a1ceb69900e17714a742a8ec228a53376c2c95" => :high_sierra
-    sha256 "4020a3d18974b13163d5fa3dde9541d4d06e9989c225f6435bec7041aac02292" => :sierra
+    rebuild 1
+    sha256 "f1172f2ee2e6f3bce711e9213ee31c7ff9d87cb0d624a0ed32d86df8c7028acd" => :mojave
+    sha256 "e8abcacc00ff1b153b635a1119cdbdb02cbe07c3addd1fda97f1a7d0de115c31" => :high_sierra
+    sha256 "ae5116f85404b5a829ea561c7c4986937dea79c93fa52a8b3456cb55b87899d3" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -21,6 +22,13 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-6.9.0.tgz"
     sha256 "d6194c36bf612f1b2a6fbe351a7cb6f44dfb9a87a1d5336b1303dc1c07e87276"
+  end
+
+  # Fixes detecting Apple clang 11.
+  # This is an upstream patch and will be in the next release.
+  patch do
+    url "https://github.com/nodejs/node/commit/1f143b8625c2985b4317a40f279232f562417077.patch?full_index=1"
+    sha256 "12d8af6647e9a5d81f68f610ad0ed17075bf14718f4d484788baac37a0d3f842"
   end
 
   def install

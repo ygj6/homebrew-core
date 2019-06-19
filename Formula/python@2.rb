@@ -6,10 +6,10 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 1
-    sha256 "cb90a15faf89116993fd85c330069965aefe2d5c6b189a594868d03a34c94aaa" => :mojave
-    sha256 "6acdb60d186cf82ffdf3edd647bbe1ef4db7233ddf9f63b22126f5dbd6993a0a" => :high_sierra
-    sha256 "90ed98bed77836e4bd9e3f258d6de2cccaa04969a9c9e162c182b487680ab145" => :sierra
+    rebuild 3
+    sha256 "8c801a1685a9a58dc703cfa76930e5766ce54b78a1a405750b8a965c1d1f150e" => :mojave
+    sha256 "ac3953f9842743f8a837e017b0a1132789974e93906192fa1a3a8b6daf5d591a" => :high_sierra
+    sha256 "fd39e60a7cc578d0946818913a5f222f50b05964e7c9a4d504a26a3a1f831ad5" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -30,18 +30,25 @@ class PythonAT2 < Formula
   depends_on "sqlite"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c2/f7/c7b501b783e5a74cf1768bc174ee4fb0a8a6ee5af6afa92274ff964703e0/setuptools-40.8.0.zip"
-    sha256 "6e4eec90337e849ade7103723b9a99631c1f0d19990d6e8412dc42f5ae8b304d"
+    url "https://files.pythonhosted.org/packages/1d/64/a18a487b4391a05b9c7f938b94a16d80305bf0369c6b0b9509e86165e1d3/setuptools-41.0.1.zip"
+    sha256 "a222d126f5471598053c9a77f4b5d4f26eaa1f150ad6e01dcf1a42e185d05613"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/36/fa/51ca4d57392e2f69397cd6e5af23da2a8d37884a605f9e3f2d3bfdc48397/pip-19.0.3.tar.gz"
-    sha256 "6e6f197a1abfb45118dbb878b5c859a0edbdd33fd250100bc015b67fded4b9f2"
+    url "https://files.pythonhosted.org/packages/93/ab/f86b61bef7ab14909bd7ec3cd2178feb0a1c86d451bc9bccd5a1aedcde5f/pip-19.1.1.tar.gz"
+    sha256 "44d3d7d3d30a1eb65c7e5ff1173cdf8f7467850605ac7cc3707b6064bddd0958"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/b7/cf/1ea0f5b3ce55cacde1e84cdde6cee1ebaff51bd9a3e6c7ba4082199af6f6/wheel-0.33.1.tar.gz"
-    sha256 "66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d"
+    url "https://files.pythonhosted.org/packages/1d/b0/f478e80aeace42fe251225a86752799174a94314c4a80ebfc5bf0ab1153a/wheel-0.33.4.tar.gz"
+    sha256 "62fcfa03d45b5b722539ccbc07b190e4bfff4bb9e3a4d470dd9f6a0981002565"
+  end
+
+  # Fixes finding zlib from within the CLT SDK.
+  # https://bugs.python.org/issue37285
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/519bb6f33c6d5948b1dbae0964599028b9a3a995/python%402/clt-sdk-path-lookup.patch"
+    sha256 "b8b82f7ef45054aca02ce5e24b0f8dd0b6d5cbc4142707ffd1d720ff6ace2162"
   end
 
   def lib_cellar

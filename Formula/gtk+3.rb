@@ -1,16 +1,19 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.8.tar.xz"
-  sha256 "666962de9b9768fe9ca785b0e2f42c8b9db3868a12fa9b356b167238d70ac799"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.9.tar.xz"
+  sha256 "577eb0270d9adf2eb2aa4b03f9c7873fadb20cf265194d0139570f738493e635"
 
   bottle do
-    sha256 "72194ae4f42adbe9c918ecceb344ea654601f26c93f18f9b3d12cd0d148dfc17" => :mojave
-    sha256 "fb8c12f8d472a70aedf84c6e869672b83ae13caee3ad7d2b5b64af57efc15ce5" => :high_sierra
-    sha256 "ba3459d7505214d213f761655b577ccab827f8513b4a2cd924bdd4277eafe4b2" => :sierra
+    sha256 "ac7f05742fa8058473e83658b88b037c3874009ffb4961410a3a31e271b61824" => :mojave
+    sha256 "b42e19853420f4b32a688c556f7cc26c4a4d1658f91b81a2f0c1f44230e13490" => :high_sierra
+    sha256 "e1c6700e09e739477dfc8a9d1f72d3ddb4647ace643752b1eeb1b61024adba99" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "gdk-pixbuf"
@@ -32,6 +35,7 @@ class Gtkx3 < Formula
       --disable-x11-backend
     ]
 
+    system "autoreconf", "-fi"
     system "./configure", *args
     # necessary to avoid gtk-update-icon-cache not being found during make install
     bin.mkpath

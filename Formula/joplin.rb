@@ -3,13 +3,13 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "https://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-1.0.135.tgz"
-  sha256 "fbe48538043bc04fd2b265f1448adc231e00e5e7d9da233397a8e1bbd4802398"
+  url "https://registry.npmjs.org/joplin/-/joplin-1.0.140.tgz"
+  sha256 "c491b2f6bdf5a98a1a2e4124ed9a1bdba59ed7ae1a88ee223cf922b24e111447"
 
   bottle do
-    sha256 "298124185fde16a020c302643c265f82cf513fb2626f5d449c33d3873e3d4c70" => :mojave
-    sha256 "54a6ba3bb9cb3bd882c6aff9e805b9b3333e25ee63f72b6ee2787abc9ab73430" => :high_sierra
-    sha256 "fe27cd4ce9b5682bfa661795dd7e3473a448bd488c1d188d793e71709cc772a7" => :sierra
+    sha256 "52c55a3c5ce8533881f8fb9ccf0229801616b7c97518455779c1ee5ab3c05ed3" => :mojave
+    sha256 "dfa7eb1274b6e9700f371bf5460a6cf76602b4739b846b5940af99abb2c015a0" => :high_sierra
+    sha256 "537b34b004214603816e592789ec7453c947a488dfeabbaa55741278b62e1cef" => :sierra
   end
 
   depends_on "python@2" => :build

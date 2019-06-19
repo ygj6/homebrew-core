@@ -1,16 +1,16 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2"
-  sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
+  url "https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2"
+  sha256 "430ae8354789de4fd19ee52f3b1f739e1fba576f0aded0897c3c2bc00fb38778"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b9e02f1dd677ceceda95c9aa3575349bd3018660d4e886be62b7ed6a5d7477b5" => :mojave
-    sha256 "791e187908f45d3a1353e9f69838c8a5d66ade9e4d410d2f6f6768d8d20d48e3" => :high_sierra
-    sha256 "ee30161bc4d164d6f92b2150a37ef1964a9c2cd24510147bcfd48103e7903887" => :sierra
+    sha256 "df5614e51cd271c477ac5a614a196180637c22f9c88b38b05c23e28a46db2c25" => :mojave
+    sha256 "fc247eaaa4e2cbe16f3acf5d88485f795fee38872fdcab2bbb0012340c5e4c30" => :high_sierra
+    sha256 "d1ff523535c6e1fafe64007fbe835c1432ac86ab1e5779b12288f9c4d57506b3" => :sierra
   end
 
   depends_on "boost"
@@ -28,6 +28,8 @@ class BoostPython3 < Formula
             "-d2",
             "-j#{ENV.make_jobs}",
             "--layout=tagged-1.66",
+            # --no-cmake-config should be dropped if possible in next version
+            "--no-cmake-config",
             "--user-config=user-config.jam",
             "threading=multi,single",
             "link=shared,static"]

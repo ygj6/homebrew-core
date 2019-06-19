@@ -1,13 +1,14 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.60/glib-networking-2.60.2.tar.xz"
-  sha256 "c022f3d10f55a5b7c31676fb001b4cb6401db8ab9f6e8418c69de00d0f268732"
+  url "https://download.gnome.org/sources/glib-networking/2.60/glib-networking-2.60.3.tar.xz"
+  sha256 "d50183046a4ff955d8cc7e953067cdfc94f14dbfda3024bf377ff37a3121dcd5"
+  revision 1
 
   bottle do
-    sha256 "d9d4579a0057696619bbf0dbf816906715d280537668dd76374fdfccaf43964b" => :mojave
-    sha256 "09acab76ae56b356896fca00d53858529d46456f48a9de6bbf98f5acb6ff89da" => :high_sierra
-    sha256 "79fb32a2ffd0c0c18ff916783f452cc6edb15289b8836d706c5894e9415de646" => :sierra
+    sha256 "209a75b4b9c0ce21e08efe3963bdbd59ac1cc353900da1afb3637ba2c1c7e882" => :mojave
+    sha256 "d309a9f5ef1d8cbc33620b9581bfcd95b94d08395d359173589ec19a5c82c613" => :high_sierra
+    sha256 "7b96cd7243418a277325754e330f673b6c48bbf0de71b4474e7898fd373fb416" => :sierra
   end
 
   depends_on "meson" => :build

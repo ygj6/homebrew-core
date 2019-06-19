@@ -5,15 +5,15 @@ class Futhark < Formula
 
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.10.2.tar.gz"
-  sha256 "6a389196d843b583ab33bf1b844b6898868ddb536e99cfb1d03b80534c52b4eb"
+  url "https://github.com/diku-dk/futhark/archive/v0.11.1.tar.gz"
+  sha256 "ae398f38de88fa5896cd517d74d640aca2fe38e784480fe25f58b5d8e802c5ed"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c11527c221bcd225dc9d25a2a913e4a8e068c0e404c3b420de36ec4604d6aa2" => :mojave
-    sha256 "a7c3d6f2f5a1aa82fe89c23841bafa7336f16274a5a83d1cdd38d56d89c4bb9d" => :high_sierra
-    sha256 "0172254dfbb2894ecfb518145df4f8e74a6b01d595c4c5f28a021a80bbde4a85" => :sierra
+    sha256 "609b824972921cdec504d28e97c8a8192cc04bc345d90c103c494ec18d5307b3" => :mojave
+    sha256 "4a42667a437bbadaa722fd3964966c82829840ee3a19907f19cde046109628af" => :high_sierra
+    sha256 "d5ba49a3a3c378dd4d920ca704da4f74b4b492ece996a2b52f05342b6db66998" => :sierra
   end
 
   depends_on "cabal-install" => :build

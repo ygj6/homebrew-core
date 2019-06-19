@@ -1,14 +1,14 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2019.05.27.00.tar.gz"
-  sha256 "7535937e4b4bde14e6c854dc55a5fe9f290ccf1918621f20678ebecd0c1239e1"
+  url "https://github.com/facebook/folly/archive/v2019.06.17.00.tar.gz"
+  sha256 "dc7ee18b24521a842fc5f7166d44b3db7246354ba4b22aa58b6a2444bb6cae6b"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "c3e8f8b52cabb5bcc51baf8bc10c87025941c750fefdaaa839749232154a8445" => :mojave
-    sha256 "6d70cad03514b2955b5e825e76420504ae9bdabf0c3245bd4dffd86ba8211fa9" => :high_sierra
+    sha256 "eedccf1f8b6c8c4964ba3d34b54d0c19548e294ade86f2f787ea3c2d97708534" => :mojave
+    sha256 "5225faa9f9b6836d0d1830c8e0fbf1d38aa971f8d799f420791228349c9b509c" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -31,12 +31,6 @@ class Folly < Formula
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
-
-  # patch for pclmul compiler flags to fix mojave build
-  patch do
-    url "https://github.com/facebook/folly/commit/964ca3c4979f72115ebfec58056e968a69d5942c.diff?full_index=1"
-    sha256 "b719dd8783f655f0d98cd0e2339ef66753a8d2503c82d334456a86763b0b889f"
-  end
 
   def install
     mkdir "_build" do

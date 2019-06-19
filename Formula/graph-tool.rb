@@ -3,13 +3,11 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.27.tar.bz2"
-  sha256 "4740c69720dfbebf8fb3e77057b3e6a257ccf0432cdaf7345f873247390e4313"
-  revision 6
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.28.tar.bz2"
+  sha256 "a2dbe0c926c058b1a6f696a05b9d9b65a3ceed57b8b6b0fe1474076bca9f8111"
 
   bottle do
-    sha256 "43a3ebf0629c1f1c78cac129bfbd7ad985fd637228b02a777def3f95e68ade53" => :mojave
-    sha256 "121b8c3ea55c43ddcd446a63a42dc15fb66705782cf27c0b2cfb3e6c5562c16b" => :sierra
+    sha256 "67b74ad725f39aeae7750bbc2515e1234f9f97a92708b0c1401d8a790c22585c" => :mojave
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +18,7 @@ class GraphTool < Formula
   depends_on "google-sparsehash"
   depends_on "gtk+3"
   depends_on "librsvg"
-  depends_on :macos => :el_capitan # needs thread-local storage
+  depends_on :macos => :mojave # for C++17
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
@@ -38,8 +36,8 @@ class GraphTool < Formula
   end
 
   resource "matplotlib" do
-    url "https://files.pythonhosted.org/packages/ec/ed/46b835da53b7ed05bd4c6cae293f13ec26e877d2e490a53a709915a9dcb7/matplotlib-2.2.2.tar.gz"
-    sha256 "4dc7ef528aad21f22be85e95725234c5178c0f938e2228ca76640e5e84d8cde8"
+    url "https://files.pythonhosted.org/packages/51/fe/84ab101f8ab543d89b6a128326f62adcdafd2781ab8362a737e6ce78eea7/matplotlib-3.1.0.tar.gz"
+    sha256 "1e0213f87cc0076f7b0c4c251d7e23601e2419cd98691df79edb95517ba06f0c"
   end
 
   resource "pyparsing" do
@@ -62,24 +60,7 @@ class GraphTool < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
-  # Remove for > 2.27
-  # Upstream commit from 3 Jul 2018 "Fix incompatibility with Python 3.7"
-  patch do
-    url "https://git.skewed.de/count0/graph-tool/commit/0407f41a.diff"
-    sha256 "94559544ad95753a13ee701c02af706c8b296c54af2c1706520ec96e24aa6d39"
-  end
-
-  # Remove for > 2.27
-  # Upstream commit from 3 Oct 2018 "Fix compilation with CGAL 4.13"
-  patch do
-    url "https://git.skewed.de/count0/graph-tool/commit/aa39e4a6.diff"
-    sha256 "5a4ea386342c2de9422da5b07dd4272d47d2cdbba99d9b258bff65a69da562c1"
-  end
-
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :high_sierra
-
     xy = Language::Python.major_minor_version "python3"
     venv = virtualenv_create(libexec, "python3")
 

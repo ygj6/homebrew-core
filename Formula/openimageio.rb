@@ -3,13 +3,14 @@ class Openimageio < Formula
   homepage "https://openimageio.org/"
   url "https://github.com/OpenImageIO/oiio/archive/Release-2.0.7.tar.gz"
   sha256 "3abe7e09c9d4e17e357c31c3cb856aea1fa7f79ab24f1fbe0bd46fd8fbd8c769"
-  revision 1
+  revision 2
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
-    sha256 "473d4046ffae59a1334a28c1b2aadbbe555968ebf65770fe1735daeb909ba8ad" => :mojave
-    sha256 "6f719de45c2886910a7a9b00dc68b44c240e15c67112e2829d479ab029bf6a28" => :high_sierra
-    sha256 "20f39841b1be100b384be4287eab05bae90db9fbf5537a84d6d70ead4bfcd785" => :sierra
+    rebuild 1
+    sha256 "07e6d5f253e87cd1ed31efcb759402e90006a8faabd82530d1405d640f7b1f96" => :mojave
+    sha256 "d75c6d6f25cc6556eeabfcf2657b12235f1218c5ebfb84ec157478e362626b8a" => :high_sierra
+    sha256 "3a1b403c55a065b67dbb888a151aaa98524376f787ef50d65e71c7b455d3a147" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,15 +1,15 @@
 class Faudio < Formula
   desc "Accuracy-focused XAudio reimplementation for open platforms"
   homepage "https://fna-xna.github.io/"
-  url "https://github.com/FNA-XNA/FAudio/archive/19.05.tar.gz"
-  sha256 "fb48a729cfb9ad53da5bb54e2726ef0a83e68a0c705b070bcc2b275a316e9ccf"
+  url "https://github.com/FNA-XNA/FAudio/archive/19.06.tar.gz"
+  sha256 "d65eb9ae2e7b758a134955559953f01c1ad11a08504bd4d6b2d5180ee3563e7d"
   head "https://github.com/FNA-XNA/FAudio.git"
 
   bottle do
     cellar :any
-    sha256 "47cc228dd7cee66e80fc57ac16196f8ca14de23ab8de3b7b0d69e41dddfe434d" => :mojave
-    sha256 "6c04d055ce7d48dc7bbe17cec7747a737a47191b311ed9330ca1ed3d0b688f4a" => :high_sierra
-    sha256 "94d1ef09498f4b4c5cf791e14389cb30ef7b5c7ea6df13f53fdc46a9e5dbd369" => :sierra
+    sha256 "6d02d5684453659cf742706e8c5954a6dae51e66213af49207cb775156b6d47e" => :mojave
+    sha256 "ad2322772b5a33eb0e7e680478bba9b0901a3ed1070fcae651df343690cc360d" => :high_sierra
+    sha256 "a728098d5ac4c522ebb4196f51475cb3ac86a5658e73e543e6dc67fd5fe3a6b2" => :sierra
   end
 
   depends_on "cmake" => :build

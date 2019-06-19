@@ -3,18 +3,17 @@ class Encfs < Formula
   homepage "https://vgough.github.io/encfs/"
   url "https://github.com/vgough/encfs/archive/v1.9.5.tar.gz"
   sha256 "4709f05395ccbad6c0a5b40a4619d60aafe3473b1a79bafb3aa700b1f756fd63"
+  revision 2
   head "https://github.com/vgough/encfs.git"
 
   bottle do
-    sha256 "15cb157add4120367495039e7afd8a14f7a3177a5bae0d90f9a1a19ae15f47da" => :mojave
-    sha256 "6fb4502bafeefe1e2a92f3a0b2dc16aa246344fe781b2b080d8895ee9f4d631d" => :high_sierra
-    sha256 "f2d430dea3a7794c14d865a4ae9426f44254dfc9f84ece48b6699fd64a5305d0" => :sierra
-    sha256 "e41a174da5447d3381a8fe39b1740d633c53c5819545ec53878743aad925b6b0" => :el_capitan
+    sha256 "b520ccb48e5c8f9652c9a297123eb174308b55114007de33c5fb90b2a9b2e4b4" => :mojave
+    sha256 "45dcc64c557931df5c0c288de0a0417fc7a6689e203b496423ef6e4bcff54e58" => :high_sierra
+    sha256 "3b7cc4337ea5f9f1b5e4ab54dd60373e943a94ac95bf7c8aa0af059a1561f364" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
   depends_on "gettext"
   depends_on "openssl"
   depends_on :osxfuse

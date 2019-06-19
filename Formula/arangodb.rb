@@ -1,14 +1,14 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.4.6.tar.gz"
-  sha256 "b4bc2bf8a1331d228532247efbe7e85a9b53e3486d8e48f48c801e0f51a09c67"
+  url "https://download.arangodb.com/Source/ArangoDB-3.4.6-1.tar.gz"
+  sha256 "b64da42e823217918ea8e9f317dec94b656e8553685f6cfb11d8038aa889687f"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
-    sha256 "e0b3a5093a2f25b5e24178d7ca0234b63b8d5987d314ec9d657a6dae95654afe" => :mojave
-    sha256 "8dce45811de5cb1f101ff3abb8af44a92d467bb9d3e9a68b13c05c172aa041b5" => :high_sierra
-    sha256 "35bbe247408ccb5775f7be98bc2d6e8ecf1638ac0f2d857f728c4425b62286df" => :sierra
+    sha256 "9b1bbe180a116bccfcce058d2f51669fa45e0644c7e97217886fadba73e991a4" => :mojave
+    sha256 "8f61b3987be98b5d3cc317e6f9cb671881a7ea28485a851044260e6e12c99589" => :high_sierra
+    sha256 "7c987ee3c27a17d28abf93876efb9939f0e0acfc737dfdccbe2d502dc56d06b6" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -24,7 +24,7 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "f8bfbd849ae7d52feb35a96d4c836710651413e5"
+      :revision => "1e8c10c8669495a6996cc8063b9956f3e99127bc"
   end
 
   def install
@@ -35,7 +35,7 @@ class Arangodb < Formula
       system "make", "deps"
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.4 -X main.projectBuild=#{commit}",
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.5 -X main.projectBuild=#{commit}",
                             "-o", "arangodb",
                             "github.com/arangodb-helper/arangodb"
       bin.install "arangodb"
