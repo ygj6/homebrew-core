@@ -11,7 +11,6 @@ class Libevhtp < Formula
 
   def install
     system "cmake", "-DEVHTP_BUILD_SHARED=ON",
-                    "-DCMAKE_BUILD_TYPE=Release",
                     "-DBUILD_SHARED_LIBS=ON",
                     ".", *std_cmake_args
     system "make", "install"
