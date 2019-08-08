@@ -2,14 +2,14 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.9.0",
-    :revision => "7b06aa37342c021f9f1fac99125847d134e67001"
+    :tag      => "v0.13.0",
+    :revision => "b3541c38f5672ffb4a29d66dca19d88b9ecae478"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f124e036beae6e5d5555352f7fa682d2e0124508c1c1c67488a958bc20d52337" => :mojave
-    sha256 "88bd5c5fc8e5a533a2c0aa09952ce9a3f3e611b6dd39e00e158c0af07cad6018" => :high_sierra
-    sha256 "958c67fa42dee61513cb4ff14ffc162d380b8be29335b654beed1874dfb9bcb9" => :sierra
+    sha256 "b0ec5a18967803acadf7b5e48bb02268e37dc466e0fa80d92af568da84c6e210" => :mojave
+    sha256 "0decb234791298d5a08cce79aff592e742d10eb686a3939f823521def7cb0b72" => :high_sierra
+    sha256 "3b6874432be793886b424bc1b0c2608dacb8f47c93c03b4f0fa569411e725190" => :sierra
   end
 
   depends_on "llvm" => :build
@@ -22,7 +22,7 @@ class Deno < Formula
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "64b846c96daeb3eaf08e26d8a84d8451c6cb712b"
+      :revision => "81ee1967d3fcbc829bac1c005c3da59739c88df9"
   end
 
   def install
@@ -46,6 +46,12 @@ class Deno < Formula
     system "python", "tools/build.py", "--release"
 
     bin.install "target/release/deno"
+
+    # Install bash and zsh completion
+    output = Utils.popen_read("#{bin}/deno completions bash")
+    (bash_completion/"deno").write output
+    output = Utils.popen_read("#{bin}/deno completions zsh")
+    (zsh_completion/"_deno").write output
   end
 
   test do

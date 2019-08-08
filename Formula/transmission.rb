@@ -3,12 +3,12 @@ class Transmission < Formula
   homepage "https://www.transmissionbt.com/"
   url "https://github.com/transmission/transmission-releases/raw/dc77bea/transmission-2.94.tar.xz"
   sha256 "35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "2a7d6cb307a817eed5a02bab0dcfbb2d024d626bd768116d5107ef74a79282a5" => :mojave
-    sha256 "6aa06621a0754c3a2f76572f68f0992747b4b2240e7424795f63071bfab5475b" => :high_sierra
-    sha256 "57ec396481d8107933552649d46de6ec78aaaa6c3a80ab27d1ba2a9465925471" => :sierra
+    sha256 "4b1441dce6e7d8b2e0ed37147a104ac5e4fe78f39584fd81d718f45e37561a23" => :mojave
+    sha256 "780d8f750f27c3acd75c78206225348ec439b2fb5bbd95a15d59eace22aa7a4f" => :high_sierra
+    sha256 "7f0f5f45070a6738560e58155acd4eec03a600c1a3123794119621067d920b51" => :sierra
   end
 
   depends_on "pkg-config" => :build

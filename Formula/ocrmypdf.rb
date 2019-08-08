@@ -3,14 +3,14 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/a5/96/3cf3f987068ad8e8796663a711b24191f8ac71b034fce0ce4fae6d9f92ea/ocrmypdf-8.3.0.tar.gz"
-  sha256 "a133b5ae87a2dcaafdf4d01d40bd6aef836d53ba072aed37f8881ea7a32c5a5e"
+  url "https://files.pythonhosted.org/packages/f7/4d/b65b75ac08ec1b077533e73c41e76f1151b82fe18bc2fac07f756a10f9d4/ocrmypdf-9.0.0.tar.gz"
+  sha256 "01a0d0baa27a6e0409bf9349d5f927f2d67ef9ee03be740eafd01320c79621ae"
 
   bottle do
     cellar :any
-    sha256 "69432d414b5da00fff2ce6dd04941b370e00d8f5db03317c45f6ff4016e7f0ad" => :mojave
-    sha256 "a704257a4f19e399a23684f2df6d09e606076a0f3d412d9e69fb90ac3c33c8e6" => :high_sierra
-    sha256 "c445535e9c87ffb247cbd02a3fdfebcb85d3e7df50a28c469e87bdec77720e62" => :sierra
+    sha256 "bdc55d2845610fa336429c156d3ff44b037f9cc1287d55c4aeb96a306bdf2d1d" => :mojave
+    sha256 "978633e071ab32cbcce3ce95bfd819edb486628a413531b46cd6ed4cde6cb53f" => :high_sierra
+    sha256 "38aa00cb5d5329eb2f7dc7ef0d3acc006b043fbdb9896180c096b8b755367fa9" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -38,11 +38,6 @@ class Ocrmypdf < Formula
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
-  resource "defusedxml" do
-    url "https://files.pythonhosted.org/packages/a4/5f/f8aa58ca0cf01cbcee728abc9d88bfeb74e95e6cb4334cfd5bed5673ea77/defusedxml-0.6.0.tar.gz"
-    sha256 "f684034d135af4c6cbb949b8a4d2ed61634515257a67299e5f940fbaa34377f5"
-  end
-
   resource "img2pdf" do
     url "https://files.pythonhosted.org/packages/e0/c6/7cd14232a1b10bf884c12daf3626afb76c4f60b52ae0eb23ce1519542ae4/img2pdf-0.3.3.tar.gz"
     sha256 "9d77c17ee65a736abe92ef8cba9cca009c064ea4ed74492c01aea596e41856cf"
@@ -53,9 +48,14 @@ class Ocrmypdf < Formula
     sha256 "4a03dd682f8e35a10234904e0b9508d705ff98cf962c5851ed052e9340df3d90"
   end
 
+  resource "pdfminer.six" do
+    url "https://files.pythonhosted.org/packages/0d/b4/26801ccc18c3622471a39eb17ab3839c91e4c48dd3e235a22130e09edc6f/pdfminer.six-20181108.tar.gz"
+    sha256 "9cc58857cf0a360213008061d903282462abee55cdcc7e0b6e08d6834e55050d"
+  end
+
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/04/a0/0951cda6ebdf3d205af9b177250382e3c149a96b82d0ce75e984310488e1/pikepdf-1.3.0.tar.gz"
-    sha256 "f6db680c47e01ab23ee813d7c0e2bc50469a6a9f4a33414e961d07cdec0ed541"
+    url "https://files.pythonhosted.org/packages/33/ff/866a02c22b5d4e69846b48ce76d7e84b2b409e47c78af690d5256067c95f/pikepdf-1.6.0.tar.gz"
+    sha256 "6173fa823ef0e0deb7aca0f5dd94b3a393a5af34d5c3be7d28a1af2e9195ebae"
   end
 
   resource "Pillow" do
@@ -68,14 +68,29 @@ class Ocrmypdf < Formula
     sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
   end
 
+  resource "pycryptodome" do
+    url "https://files.pythonhosted.org/packages/c0/1e/5398467ff0fcb39dbb23412c5ea9c9b2db2b659282e49d4073daae952247/pycryptodome-3.8.1.tar.gz"
+    sha256 "68ad0ce4a374577a26bb7f458575abe3c2a342818b5280de6e5738870b7761b3"
+  end
+
   resource "reportlab" do
     url "https://files.pythonhosted.org/packages/dd/dc/200a6113b14d41309898347270ba3d2190f10b26f399f7ad3e4f4611fd77/reportlab-3.5.20.tar.gz"
     sha256 "7b248d2d9d4ab6d4cad91eb2b153b2c4c7b3fced89cb5a5b5bfbc7d09593871a"
   end
 
-  resource "ruffus" do
-    url "https://files.pythonhosted.org/packages/18/24/05e8fe590d08bd9e6122c6a87425ff741c79edf01d2873f92028e860e547/ruffus-2.8.1.tar.gz"
-    sha256 "90bc1e57ffb95be11e9c4461a406fee63395898beacd35a1dce9dd2c468c2582"
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+  end
+
+  resource "sortedcontainers" do
+    url "https://files.pythonhosted.org/packages/29/e0/135df2e733790a3d3bcda970fd080617be8cea3bd98f411e76e6847c17ef/sortedcontainers-2.1.0.tar.gz"
+    sha256 "974e9a32f56b17c1bac2aebd9dcf197f3eb9cd30553c5852a3187ad162e1a03a"
+  end
+
+  resource "tqdm" do
+    url "https://files.pythonhosted.org/packages/36/64/071ce46cbb8cd02e5fa88cc6abf31e51724db858a5ffb3f56dc1c6311f3a/tqdm-4.32.1.tar.gz"
+    sha256 "0a860bf2683fdbb4812fe539a6c22ea3f1777843ea985cb8c3807db448a0f7ab"
   end
 
   def install

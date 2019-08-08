@@ -3,14 +3,14 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.1.3.tgz"
-  sha256 "fa174e53392256d4c2a84427bf4385601afe6f6a0bf6680b60ed6a77d85ea7b8"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.2.2.tgz"
+  sha256 "64c2587d2289e61248819ad486a520625ce1ad03a8d750c1c872888d68a2149f"
   head "https://github.com/teambit/bit.git"
 
   bottle do
-    sha256 "04c98812e8b55a44e16ab055283f9d4b627b4076ed5b0b922627da34540971b8" => :mojave
-    sha256 "4a81ce4c5db838a1f3ea6de5e0e3af0334d2b5e35893e0f014c8a762387d42cb" => :high_sierra
-    sha256 "602aac5e6f0b355c3ca78c741934f1232b4a3125438ecd24bb920f0648d87d4f" => :sierra
+    sha256 "2c71eb71558b9de6b875c5b1005c8a4f2529d389407884d74344615fdb9a8be7" => :mojave
+    sha256 "c91e9364d8a3e9b048ebd6114de31e1d5a15168f5f03f2271f333aa1b1a072d9" => :high_sierra
+    sha256 "255fb9cc0c907be3434a90ddd9b72fc515f87e2f2c656fae6ab97b85a1cfe8c5" => :sierra
   end
 
   depends_on "node"

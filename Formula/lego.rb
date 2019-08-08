@@ -1,24 +1,29 @@
 class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://go-acme.github.io/lego/"
-  url "https://github.com/go-acme/lego/archive/v2.6.0.tar.gz"
-  sha256 "1abba13871f58fe483a3d4ac3900d44cddeacfc3dfe9fae2d96e45a9a39e7ce7"
+  url "https://github.com/go-acme/lego.git",
+    :tag      => "v3.0.0",
+    :revision => "e7a90b94711464ffbfd20e14cd180650ccc7103e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f27e199f6740cfd1539d7065730c7cd3c2d5f1b3280d59e79a21f9ec84a88c2b" => :mojave
-    sha256 "099303a2875e0b5f767edaacf6d819595f5760741758434a62ad2a4437513de0" => :high_sierra
-    sha256 "9c649b86821705cd55cf0a6f9ec32adff17c76b793ff4d35798febc706e66e42" => :sierra
+    sha256 "d56a127ab11c27f2eff19114c710000a6862535d2972580ae25311a243eb21ea" => :mojave
+    sha256 "a1c491a2aedd0f383b61c56cb3c51cb93b3cec79ce97039c734b99c6cdbb17f1" => :high_sierra
+    sha256 "bf993941dfc06dbfe345c25eb509cd184992cca09810eebfeb4a4687f1dbef7d" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/go-acme/lego").install buildpath.children
-    cd "src/github.com/go-acme/lego/cmd/lego" do
-      system "go", "build", "-o", bin/"lego", "-ldflags",
-             "-X main.version=#{version}"
+
+    dir = buildpath/"src/github.com/go-acme/lego"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-ldflags", "-X main.version=#{version}",
+          "-o", bin/"lego", "cmd/lego/main.go"
       prefix.install_metafiles
     end
   end

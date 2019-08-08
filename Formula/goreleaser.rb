@@ -2,14 +2,14 @@ class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
   url "https://github.com/goreleaser/goreleaser.git",
-      :tag      => "v0.110.0",
-      :revision => "3f082c9252eb93a4bdf5045e06accbde37bb6dc3"
+      :tag      => "v0.114.0",
+      :revision => "ab0e755a71afff0f13c5237f896ad86c8633a912"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2df4429dd8cc2872214a5c4611ef6179f211e73d34620df2336f84b1b521a646" => :mojave
-    sha256 "6da1ffeeee651395cf20f18f03398acc9302b422ab8652aadadd9f34ab5a16b8" => :high_sierra
-    sha256 "6c72a269dddde697775aa25cbc5af47bf0211a1d5a8ac0ca7ee4aaab41b9374d" => :sierra
+    sha256 "3f1a943d8fe6b99c55eae523e090be1670081549db431f3f24907507a972df96" => :mojave
+    sha256 "1aa12886cce135e925534c769feddd565e6361126c266f29019fd93c2a552fef" => :high_sierra
+    sha256 "10aab07578a5981586c49fa49cc28c7658be6c423dcd154c18c68bbbb5e1deb3" => :sierra
   end
 
   depends_on "go" => :build
@@ -32,7 +32,7 @@ class Goreleaser < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/goreleaser -v 2>&1")
-    assert_match "config created", shell_output("#{bin}/goreleaser init 2>&1")
+    assert_match "config created", shell_output("#{bin}/goreleaser init --config=.goreleaser.yml 2>&1")
     assert_predicate testpath/".goreleaser.yml", :exist?
   end
 end

@@ -1,15 +1,17 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v3.7.1/ccache-3.7.1.tar.xz"
-  sha256 "66fc121a2a33968f9ec428e02f48ff4b8896fbabb759e9c09352267014dcbe65"
+  url "https://github.com/ccache/ccache/releases/download/v3.7.2/ccache-3.7.2.tar.xz"
+  sha256 "a5da0008512ff9e882097acaffb3616fae98ec25827167bb4bd1e4acf0b66793"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "758092cb544e543094c6db931631112660f817112df869ac44fd82a604921aeb" => :mojave
-    sha256 "db4b6e2637ede1d12536544b7dc3f6c36549c1fad7cfca481a103b88cff134ae" => :high_sierra
-    sha256 "b41e0434efa91fa46caae563d5866fcfee17915c52a8983b8c898d59a5646440" => :sierra
+    sha256 "43a6256824d3c8f59139a010b20a569f704ace86dcb4171fd11be7bc5bacf214" => :mojave
+    sha256 "680f292f08db227ef7053da2ad880315f2f1c5e55798a7d40b1d9d7bbfb20da4" => :high_sierra
+    sha256 "b5d25752a7dcfb3e198058cd545800739b750e050d3d55a2e380ed162b696773" => :sierra
   end
+
+  uses_from_macos "zlib"
 
   head do
     url "https://github.com/ccache/ccache.git"
@@ -34,9 +36,9 @@ class Ccache < Formula
       clang
       clang++
       cc
-      gcc gcc2 gcc3 gcc-3.3 gcc-4.0 gcc-4.2 gcc-4.3 gcc-4.4 gcc-4.5 gcc-4.6 gcc-4.7 gcc-4.8 gcc-4.9 gcc-5 gcc-6 gcc-7
-      c++ c++3 c++-3.3 c++-4.0 c++-4.2 c++-4.3 c++-4.4 c++-4.5 c++-4.6 c++-4.7 c++-4.8 c++-4.9 c++-5 c++-6 c++-7
-      g++ g++2 g++3 g++-3.3 g++-4.0 g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9 g++-5 g++-6 g++-7
+      gcc gcc2 gcc3 gcc-3.3 gcc-4.0 gcc-4.2 gcc-4.3 gcc-4.4 gcc-4.5 gcc-4.6 gcc-4.7 gcc-4.8 gcc-4.9 gcc-5 gcc-6 gcc-7 gcc-8 gcc-9
+      c++ c++3 c++-3.3 c++-4.0 c++-4.2 c++-4.3 c++-4.4 c++-4.5 c++-4.6 c++-4.7 c++-4.8 c++-4.9 c++-5 c++-6 c++-7 c++-8 c++-9
+      g++ g++2 g++3 g++-3.3 g++-4.0 g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9 g++-5 g++-6 g++-7 g++-8 g++-9
     ].each do |prog|
       libexec.install_symlink bin/"ccache" => prog
     end

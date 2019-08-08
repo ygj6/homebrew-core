@@ -1,13 +1,13 @@
 class Avfs < Formula
   desc "Virtual file system that facilitates looking inside archives"
   homepage "https://avf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/avf/avfs/1.0.6/avfs-1.0.6.tar.bz2"
-  sha256 "4c1a3a776a01ce7a5b74d66c955269162304edd8c18489fb2186ef728f4be3c3"
+  url "https://downloads.sourceforge.net/project/avf/avfs/1.1.0/avfs-1.1.0.tar.bz2"
+  sha256 "a7f3734f5be1a76aab710fb49a004b60bb802ccbd32394a731b18ed6011333a7"
 
   bottle do
-    sha256 "f7b1f3a2a166a4418f6f27707dae144391f6ee2db5fe6029a2369d8de6d2093d" => :mojave
-    sha256 "782ac0bc73deff3843c7af2b05e4b82cd99c8062c41014100ca1b2d56a5f5b53" => :high_sierra
-    sha256 "810afba90280d2aaef31560b9d0776cce882fc549e9c0575ba9777bd626687b7" => :sierra
+    sha256 "3aa296ad227248a43fcb7723c0f5c9779662ee3abc8b1e6477c0271a1e50c6fe" => :mojave
+    sha256 "bcde7798b2fff699e68237479e4a106323becee2028d47080e82f0769b792120" => :high_sierra
+    sha256 "bed10bc8e692380a485c14719e42dc6ba386cc756acb471f7b5e65a3428f0d68" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -15,10 +15,6 @@ class Avfs < Formula
   depends_on "openssl"
   depends_on :osxfuse
   depends_on "xz"
-
-  # Fix scripts to work on Mac OS X.
-  # Nothing the patch fixes has been changed in 1.0.2, so still necessary.
-  patch :DATA
 
   def install
     args = %W[
@@ -39,36 +35,3 @@ class Avfs < Formula
     system bin/"avfsd", "--version"
   end
 end
-
-__END__
-diff --git i/scripts/mountavfs w/scripts/mountavfs
-index 5722dcd..a35e633 100755
---- i/scripts/mountavfs
-+++ w/scripts/mountavfs
-@@ -14,7 +14,7 @@ else
-     MntDir=${HOME}/.avfs
- fi
-
--grep -qE "avfsd ${MntDir}" /proc/mounts || {
-+grep -qE "avfsd.*${MntDir}" < <(mount) || {
-    if [ ! -e "$MntDir" ]; then
-       mkdir -p "$MntDir"
-    fi
-diff --git i/scripts/umountavfs w/scripts/umountavfs
-index 09dc629..a242c21 100644
---- i/scripts/umountavfs
-+++ w/scripts/umountavfs
-@@ -14,11 +14,11 @@ else
-     MntDir="${HOME}/.avfs"
- fi
-
--grep -qE "${MntDir}.*avfsd" /proc/mounts && {
-+grep -qE "avfsd.*${MntDir}" < <(mount) && {
-    echo unMounting AVFS on $MntDir...
-    if type -p fusermount > /dev/null 2>&1 ; then
-       fusermount -u -z "$MntDir"
-    else
--      umount -l "$MntDir"
-+      umount "$MntDir"
-    fi
- }

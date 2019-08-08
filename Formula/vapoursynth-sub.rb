@@ -1,15 +1,15 @@
 class VapoursynthSub < Formula
   desc "VapourSynth filters - Subtitling filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R45.1.tar.gz"
-  sha256 "4f43e5bb8c4817fdebe572d82febe4abac892918c54e1cb71aa6f6eb3677a877"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R46.tar.gz"
+  sha256 "e0b6e538cc54a021935e89a88c5fdae23c018873413501785c80b343c455fe7f"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "3f18667ff79b4320548cbbd584b5ea37493fd819e1946f83e48aaad8649e406f" => :mojave
-    sha256 "4dc5ed3a87f9eb830fabcbb45a13857ac90db6efcd6de33159c6c98e656b349a" => :high_sierra
-    sha256 "a2f0a16cbfd13c6852afcb7602b60f15e849db51782ffc7aad46255903ed43c6" => :sierra
+    sha256 "e3812411db7d24289712a92a1331301050d8e6e0dd98bcf7c4d76c877b586868" => :mojave
+    sha256 "f2d2c515196ed550dc2b804091ce43ac4d365e85931b0bb5a385d43ba44a824f" => :high_sierra
+    sha256 "6e21cc9a74b07b1afca8c1f35b3293f51127bb1cfd255dd112bb664f41475b94" => :sierra
   end
 
   depends_on "autoconf" => :build

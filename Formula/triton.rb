@@ -3,14 +3,14 @@ require "language/node"
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
-  url "https://registry.npmjs.org/triton/-/triton-7.1.1.tgz"
-  sha256 "24a1f697ee71451893f108dba9e4a5a7830cefe22028d98b504b3d2fe65ab2fe"
+  url "https://registry.npmjs.org/triton/-/triton-7.3.0.tgz"
+  sha256 "727cca955e6ccecee141296642ff600527a9ab746281a175244fd02a3bf31102"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "44a27d9c64d619fafd04eefbca811a02454b40547ba4ec35407916f19226f99e" => :mojave
-    sha256 "81b7cf38e96b063f34bc15256676931e4e789d73561e03cda139958be68984ce" => :high_sierra
-    sha256 "cb6c17ce067953a6430a1a9bf176ec4179921bcfc79caecb207a21c495132767" => :sierra
+    sha256 "cec8c5ebe508525b39178c239c9c1c864d66df5f6a2a740f65ad2a866ab08b82" => :mojave
+    sha256 "c1f1527f5e2dedc3132c6841add67437fb1dfe6f41538a2894aa0ca31e304d76" => :high_sierra
+    sha256 "ab746681920c2818b117eb33e792f75edfcec916f40300aff0327171538f764c" => :sierra
   end
 
   depends_on "node"
@@ -18,6 +18,7 @@ class Triton < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    (bash_completion/"triton").write `#{bin}/triton completion`
   end
 
   test do

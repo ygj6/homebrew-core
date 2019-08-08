@@ -1,22 +1,27 @@
 class Mtr < Formula
   desc "'traceroute' and 'ping' in a single tool"
   homepage "https://www.bitwizard.nl/mtr/"
-  url "https://github.com/traviscross/mtr/archive/v0.92.tar.gz"
-  sha256 "568a52911a8933496e60c88ac6fea12379469d7943feb9223f4337903e4bc164"
+  url "https://github.com/traviscross/mtr/archive/v0.93.tar.gz"
+  sha256 "3a1ab330104ddee3135af3cfa567b9608001c5deecbf200c08b545ed6d7a4c8f"
+  revision 1
   head "https://github.com/traviscross/mtr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0ec13c29bb5e49ffbe0a9c83da77313c28b6bed60da1eb923945130f74158212" => :mojave
-    sha256 "3e426bdf04070ab31f2e70fae91a5b576ced3072733d5e9a0b617c75e97202bf" => :high_sierra
-    sha256 "0558426657c36a32f26d65c96b6111753f7189b5b198715df33b9a4f64e25732" => :sierra
-    sha256 "1700c0b67f337a9089de95ded89391be790ad440336b252be1d109b9b8352cc7" => :el_capitan
-    sha256 "90aa1e5d224e98d572525b09715390f0fbf2b72954cd3c0b87b9cd6af6ff8ac2" => :yosemite
+    sha256 "897b799ceac2677da540387c4015d4f520f59bf9965bcf1b5b1e9dd706bf3778" => :mojave
+    sha256 "b0348961fef4e2b805434587d69cd6f2caecc3ed2c21873211635e6a875a4562" => :high_sierra
+    sha256 "cffaaf2cacad93387e7f32bcbb38e8dd1be2d2615774baa96ed320021e564011" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
+
+  # Pull request submitted upstream as https://github.com/traviscross/mtr/pull/315
+  patch do
+    url "https://github.com/traviscross/mtr/pull/315.patch?full_index=1"
+    sha256 "c67b455198d4ad8269de56464366ed2bbbc5b363ceda0285ee84be40e4893668"
+  end
 
   def install
     # We need to add this because nameserver8_compat.h has been removed in Snow Leopard

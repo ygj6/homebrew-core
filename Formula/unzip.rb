@@ -4,13 +4,13 @@ class Unzip < Formula
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "06aeb3114e2a030970f0d05424e9f2b2f845a2a5643065f173ba6a70e99970a3" => :mojave
-    sha256 "0e76c4b9f38e8de22409e666894400b95340271144e44bd408975a8d0100b942" => :high_sierra
-    sha256 "5445d1be98f82d7d4d4a01f930790d0745c845cdbf1a7ea23d07f7fc295d6f90" => :sierra
+    sha256 "fb885bc3523609b17d0558b44b345f2e86fc0dfba3f3954d0dfd1d9126bcd554" => :mojave
+    sha256 "29cdc76b3bcfd65e657bb97852abdb974e7cca1ae5b79a60333eb8a762c001a6" => :high_sierra
+    sha256 "98352007308f516e0a93f0725293ed0e8b52ccbd03ee1bcc0ead5f345972dae4" => :sierra
   end
 
   keg_only :provided_by_macos
@@ -18,8 +18,8 @@ class Unzip < Formula
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/sid/unzip
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-22.debian.tar.xz"
-    sha256 "f3c80c1e3917d59cb2fe72f0431159c919f2df7fc96f5b539c91cc96fc02ecfa"
+    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-23.debian.tar.xz"
+    sha256 "c8b5d256aca6b24b36e92270856b6947401bd4107c883b78a6fcf8afec6f54aa"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch
@@ -41,6 +41,7 @@ class Unzip < Formula
       patches/18-cve-2014-9913-unzip-buffer-overflow.patch
       patches/19-cve-2016-9844-zipinfo-buffer-overflow.patch
       patches/20-cve-2018-1000035-unzip-buffer-overflow.patch
+      patches/21-fix-warning-messages-on-big-files.patch
     ]
   end
 

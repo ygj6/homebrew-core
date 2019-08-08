@@ -1,14 +1,14 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.3.6.tar.xz"
-  sha256 "fefc8967daa30ebc375b2ab2857f97da94ca81921b722ddac86b29e15c54a164"
-  revision 1
+  url "https://www.php.net/distributions/php-7.3.7.tar.xz"
+  sha256 "ba067200ba649956b3a92ec8b71a6ed8ce8a099921212443c1bcf3260a29274c"
 
   bottle do
-    sha256 "a7bb7bea2ffee51fc67c8ba61c45c980a05f994fa4580fc4629601ed06d5c8ee" => :mojave
-    sha256 "d27bbb0e34d7bdcc4d55f43f7aff223878b3d6915335630c78696eab60d89068" => :high_sierra
-    sha256 "602ce9cb951472043180c62889d225cebbb812f60a4241dbaff957e6b3bc7b74" => :sierra
+    rebuild 1
+    sha256 "48c4671ccd5d340e0b255f8d294a81f3df87f827c5ad6ec0381c5f6cfe1ed9e4" => :mojave
+    sha256 "e2ed100ed62593b96152a20373b078202ccae1d4b6a4285b629a7b6bda98ef23" => :high_sierra
+    sha256 "aa8ab70b52182d8fdaeecf7928c66fa997616d1008925f1580e9be366074c472" => :sierra
   end
 
   depends_on "httpd" => [:build, :test]
@@ -176,6 +176,11 @@ class Php < Formula
       "openssl.cafile = \"#{HOMEBREW_PREFIX}/etc/openssl/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
       "openssl.capath = \"#{HOMEBREW_PREFIX}/etc/openssl/certs\""
+
+    # php 7.3 known bug
+    # SO discussion: https://stackoverflow.com/a/53709484/791609
+    # bug report: https://bugs.php.net/bug.php?id=77260
+    inreplace "php.ini-development", ";pcre.jit=1", "pcre.jit=0"
 
     config_files = {
       "php.ini-development"   => "php.ini",

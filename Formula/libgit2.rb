@@ -1,15 +1,15 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.28.1.tar.gz"
-  sha256 "0ca11048795b0d6338f2e57717370208c2c97ad66c6d5eac0c97a8827d13936b"
+  url "https://github.com/libgit2/libgit2/archive/v0.28.2.tar.gz"
+  sha256 "42b5f1e9b9159d66d86fff0394215c5733b6ef8f9b9d054cdd8c73ad47177fc3"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
     cellar :any
-    sha256 "8c40517602d53a5e163caeb1859dd34d4cd039f9d1ca4e20fedc94e21acb030b" => :mojave
-    sha256 "c88430caf41e2813605349e8600ebd3a04f61f1b0addea820f14f59ae237cf57" => :high_sierra
-    sha256 "2daf457689e8a02eb75b71706e82f417a9ca1a73c58ac121b15e16712346b26c" => :sierra
+    sha256 "e1e27df1ed510a850d7cdd342b73207324b7e746946a55f8456b8ce3466ff396" => :mojave
+    sha256 "e0c298cb472a0fcfbef04c8a127d1ab5c51ff5b95957ed17bad88bf1bbff0bb9" => :high_sierra
+    sha256 "ee33e4f829bdc4b29daa5d6ed42adef4ca78d718220012958d32ba54d4eadb39" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -6,28 +6,20 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  url "https://github.com/PostgREST/postgrest/archive/v0.5.0.0.tar.gz"
-  sha256 "cfc9a6477d0f087051f654a0a7070804db388ed3c97e4e68d7d286e82d5be4b8"
+  url "https://github.com/PostgREST/postgrest/archive/v6.0.0.tar.gz"
+  sha256 "161095014ccb8bb744849ae8dad8c95b9de2ac6ddf3bcb09bbd6ec7e1fe541e7"
   head "https://github.com/PostgREST/postgrest.git"
 
   bottle do
     cellar :any
-    sha256 "ea1508ab22eaffe64955cbdd76647854e289d9ed3b6172e0fdd1a220fe2e6815" => :high_sierra
-    sha256 "fba956125442f3db5548fce364269c98b599ed5c762992941c4461c9c60ca693" => :sierra
-    sha256 "bfea24b8036f2bd5a81271cada5248f96ff0bc8ecf88492b4240cf77187b99e2" => :el_capitan
+    sha256 "203a53be5ca17df60658df5a9b7b288339cb585ff3af90b67dce84419f4e2809" => :mojave
+    sha256 "060cffafd12f00623bda0941f6ddd5f121ee602bcb8db0ee17c37b6b6da06754" => :high_sierra
+    sha256 "08f7f10f551a8aae1ab220036b56e74db5516d196bf719dc72dc46690b2c9a62" => :sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
   depends_on "postgresql"
-
-  # Fix build failure with protolude 0.2.2 and hasql-transaction 0.6
-  # Upstream PR 14 May 2018 "postgrest.cabal: fix constraints on protolude and
-  # hasql-transaction"
-  patch do
-    url "https://github.com/PostgREST/postgrest/pull/1111.patch?full_index=1"
-    sha256 "c740da96fb0dfb4a920d9f5091ec34fafcf9d8fe53b4eadda3cbdc80b02d09cd"
-  end
 
   def install
     install_cabal_package :using => ["happy"]

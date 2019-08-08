@@ -1,7 +1,7 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 3
+  revision 5
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz"
@@ -9,9 +9,9 @@ class GstPluginsGood < Formula
   end
 
   bottle do
-    sha256 "a9dc8aef05b51b314f41943c64169040dc9429ac6ff2820e5fb027b139d69bf7" => :mojave
-    sha256 "0d9d3043eed877bba628888bdc4ed60c89b0157514fb41966937ab84c412597c" => :high_sierra
-    sha256 "f67edc267783cb9fa6dac9cbe74295a1c11cf849aa91c89ea0631eb17312e360" => :sierra
+    sha256 "9d0d545c7781c85fe2dee7c4084ccb85caa2894a5c07f453f7f8b7de84c477b5" => :mojave
+    sha256 "057a58645277bfc71782c42c9c270efad4a3930c4dc7f238df9e9ff38be6b700" => :high_sierra
+    sha256 "027773fa78494d0075a2113556b7b6f3f326b232411e1c7950c76f2737d13bde" => :sierra
   end
 
   head do
@@ -43,6 +43,7 @@ class GstPluginsGood < Formula
       --prefix=#{prefix}
       --disable-gtk-doc
       --disable-goom
+      --disable-lame
       --with-default-videosink=ximagesink
       --disable-debug
       --disable-dependency-tracking

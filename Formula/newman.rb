@@ -3,14 +3,14 @@ require "language/node"
 class Newman < Formula
   desc "Command-line collection runner for Postman"
   homepage "https://www.getpostman.com"
-  url "https://registry.npmjs.org/newman/-/newman-4.5.0.tgz"
-  sha256 "6c6c19dc1a20baa6f353249079429259e951104326df0b9f00b46ec13d83c5ff"
+  url "https://registry.npmjs.org/newman/-/newman-4.5.3.tgz"
+  sha256 "e982c7ca6eeb53b9ae6d2922c09a5202f82ebbda228ff2133b2cb74fe722d5c8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46b1901623023bce40aaf69d8079680218db434010ce28bf8f1ad0750cbe4093" => :mojave
-    sha256 "becc508308ef7620188e0e26f928eb0d7cb383434509d140554d3f3579f876d1" => :high_sierra
-    sha256 "4356f96ff121e334e6de32d74b35dc318c9a28a5938534b894c2a7d9a69d12fa" => :sierra
+    sha256 "b70f201ca959626adc794615ee104c7e9ba40500ed312b49f0259d6d24eac325" => :mojave
+    sha256 "8927b26ecc8b246e93a239c61317827809f13cc43505304d40c7b44fe76ee355" => :high_sierra
+    sha256 "43fa03a48d0bef489f5822271329cef211331f4b003b001ef9702e108008b5fd" => :sierra
   end
 
   depends_on "node"

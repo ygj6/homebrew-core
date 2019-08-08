@@ -4,13 +4,13 @@ class BalenaCli < Formula
   desc "The official balena CLI tool"
   homepage "https://www.balena.io/docs/reference/cli/"
   # Frequent upstream releases, do not update more than once a week
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-11.3.1.tgz"
-  sha256 "193c5b66193ffee3b9f4b047201f67c033f7c31eb9bff45b3c3a59a901043ebb"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-11.7.4.tgz"
+  sha256 "c60b298d110ff8d440d98415f5bb7d5e1d66fc119f99fff1a3131ffc5ed94a74"
 
   bottle do
-    sha256 "d8a943e35c4075f279e6b3468e6c25aba1a4d63bfa9d601a51c41f3f84fa62e1" => :mojave
-    sha256 "8e8c8019e4c8618a487ccccaf7a0e0ac086c7d6b0691ffe19e7180153950f6c7" => :high_sierra
-    sha256 "e164a41d50c9061a5b9b6983c25e3265b55bdb28336af4c80cf3196d79954760" => :sierra
+    sha256 "875a13af8c83ed5dfc47fcb994d405192cf0d1a4ad50e991a5100215d4ce40bc" => :mojave
+    sha256 "74b85f79d2148099bbcf2884655ba554323638a7fe959eefdc2aaa629298c1fb" => :high_sierra
+    sha256 "2c20e6f82fd9ba64d366df3a08ef75c3355db80b528b1872160081d95a00bf6a" => :sierra
   end
 
   depends_on "node"

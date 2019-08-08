@@ -3,14 +3,14 @@ require "language/node"
 class Terrahub < Formula
   desc "Terraform automation and orchestration tool"
   homepage "https://docs.terrahub.io"
-  url "https://registry.npmjs.org/terrahub/-/terrahub-0.2.74.tgz"
-  sha256 "5206b8c9d7aeb5924719b67450ec0d2724905749c7e6968973908f00fc1562f3"
+  url "https://registry.npmjs.org/terrahub/-/terrahub-0.3.2.tgz"
+  sha256 "77928821651aaae0799c1d637737c8fb758c7229b7c3b84a38c21be1ed2f54d7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "93605d312f1d2d28e97a059f125b204cf14f42f08fdcd9c0253bcf5c30fb7df8" => :mojave
-    sha256 "ca78d18ade34dc27c6a9adbb17b5715487bdc6b3886ba23f8c9512548e8795d0" => :high_sierra
-    sha256 "79de547287a24d7c24d96b79ed483b52452575dc259d58e6bceced166a6471bb" => :sierra
+    sha256 "e3447ac9c7a1942ce088798a62a87e6b26f927c30b0d9c9d79ca990791696703" => :mojave
+    sha256 "8b5488f2f0793779b74698352ee438faf0dc78485186a9cf99e58e2af32d864d" => :high_sierra
+    sha256 "2993914eb7748fb2ffdb91f656786ca5f10151ccdf46d060ab0c855f5e937d5d" => :sierra
   end
 
   depends_on "node"

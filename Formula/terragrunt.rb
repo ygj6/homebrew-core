@@ -1,15 +1,15 @@
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state"
   homepage "https://github.com/gruntwork-io/terragrunt"
-  url "https://github.com/gruntwork-io/terragrunt/archive/v0.19.4.tar.gz"
-  sha256 "c6b263d42ac7ec7fa4a0f15362dc2d93367a66597844bb9a1f1b52cfeb63c86e"
+  url "https://github.com/gruntwork-io/terragrunt/archive/v0.19.16.tar.gz"
+  sha256 "ab4adcf7707b71d56190bb65f8d0e340eefd290d86bdd3a2ce1e679ebb418039"
   head "https://github.com/gruntwork-io/terragrunt.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c9d35aba2e6e716283704ac7a58c4e49bcac7d2535a314cb5edd4bcdb04eca38" => :mojave
-    sha256 "af45c409b6a13b50ac90fd152c2339cc320d37a3efb0b6f8d725a359823a7686" => :high_sierra
-    sha256 "578f0f421941d1e6ba1546e0c54754f0309d84205c73ca3d5a20401c4e2d60b2" => :sierra
+    sha256 "a52cdb541a4c950de23bfb3461e5cc37dad9055d63a408579287971d73466172" => :mojave
+    sha256 "8d54944b7734feab102bb0af46a4e82f720a367002f76958c7bc66652a3d6556" => :high_sierra
+    sha256 "4f86043344a0b3827eb9c6d6a4c59faa61446a5a5478bec8f236887ef408b309" => :sierra
   end
 
   depends_on "dep" => :build

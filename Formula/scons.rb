@@ -1,14 +1,14 @@
 class Scons < Formula
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
-  url "https://downloads.sourceforge.net/project/scons/scons/3.0.5/scons-3.0.5.tar.gz"
-  sha256 "df676f23dc6d4bfa384fc389d95dcd21ab907e6349d4c848958ba4befb73c73e"
+  url "https://downloads.sourceforge.net/project/scons/scons/3.1.0/scons-3.1.0.tar.gz"
+  sha256 "f3f548d738d4a2179123ecd744271ec413b2d55735ea7625a59b1b59e6cd132f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f837fb5da5203f5f953be220ab1c3075ff3be6d594d34fcb25f6ebe3d1477f4" => :mojave
-    sha256 "0f837fb5da5203f5f953be220ab1c3075ff3be6d594d34fcb25f6ebe3d1477f4" => :high_sierra
-    sha256 "4be2ad2f5201a3a59da7047a8fc4919f6e79ae8e1de13f5c5131a8582022ba69" => :sierra
+    sha256 "2b6741458af137560627793b078afdfff7ea18c0ebe95109f040e8e352017464" => :mojave
+    sha256 "2b6741458af137560627793b078afdfff7ea18c0ebe95109f040e8e352017464" => :high_sierra
+    sha256 "93360d50ab43b502816d1f6c7c930bc52eed3cbb62f58891150441a50606cfa9" => :sierra
   end
 
   def install
